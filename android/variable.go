@@ -89,7 +89,7 @@ type variableProperties struct {
 		}
 
 		// include Cardinal variables
-		*android.Product_variables
+		Cardinal android.Product_variables
 	} `android:"arch_variant"`
 }
 
@@ -157,7 +157,7 @@ type productVariables struct {
 	Override_rs_driver *string `json:",omitempty"`
 
 	// include Cardinal variables
-	*android.ProductVariables
+	Cardinal android.ProductVariables
 }
 
 func boolPtr(v bool) *bool {
