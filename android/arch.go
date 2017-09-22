@@ -417,9 +417,11 @@ func createArchType(props reflect.Type) reflect.Type {
 		variants := []string{}
 
 		for _, archVariant := range archVariants[arch] {
+			archVariant := variantReplacer.Replace(archVariant)
 			variants = append(variants, proptools.FieldNameForProperty(archVariant))
 		}
 		for _, feature := range archFeatures[arch] {
+			feature := variantReplacer.Replace(feature)
 			variants = append(variants, proptools.FieldNameForProperty(feature))
 		}
 
@@ -856,8 +858,10 @@ func getMegaDeviceConfig() []archConfig {
 		{"arm", "armv7-a-neon", "cortex-a53.a57", []string{"armeabi-v7a"}},
 		{"arm", "armv7-a-neon", "denver", []string{"armeabi-v7a"}},
 		{"arm", "armv7-a-neon", "krait", []string{"armeabi-v7a"}},
+		{"arm", "armv7-a-neon", "kryo", []string{"armeabi-v7a"}},
 		{"arm64", "armv8-a", "cortex-a53", []string{"arm64-v8a"}},
 		{"arm64", "armv8-a", "denver64", []string{"arm64-v8a"}},
+		{"arm64", "armv8-a", "kryo", []string{"arm64-v8a"}},
 		{"mips", "mips32-fp", "", []string{"mips"}},
 		{"mips", "mips32r2-fp", "", []string{"mips"}},
 		{"mips", "mips32r2-fp-xburst", "", []string{"mips"}},
